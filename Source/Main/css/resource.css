@@ -1,0 +1,652 @@
+#Slider .swiper{
+	border-radius: 0;
+}
+#Slider img{
+	width: 100%;
+	height: 100%;
+
+	object-fit: cover;
+}
+#Services .rating-result{
+	position: absolute;
+
+	z-index: 50;
+
+	padding: 10px;
+}
+
+.swiper{
+	border-radius: 10px;
+
+	overflow: hidden;
+}
+
+.card{
+	background: lavender;
+
+	height: 100%;
+
+	-webkit-box-shadow: 0px 0px 4px 0 rgba(34, 60, 80, 0.4);
+	-moz-box-shadow: 0px 0px 4px 0 rgba(34, 60, 80, 0.4);
+	box-shadow: 0px 0px 4px 0 rgba(34, 60, 80, 0.4);
+}
+.card:hover{
+	-webkit-box-shadow: 0px 5px 10px -1px rgba(34, 60, 80, 0.6);
+	-moz-box-shadow: 0px 5px 10px -1px rgba(34, 60, 80, 0.6);
+	box-shadow: 0px 5px 10px -1px rgba(34, 60, 80, 0.6);
+}
+.card .card-title, .card h5{
+	display: -webkit-box;
+	overflow: hidden;
+
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+}
+.card-img-overlay{
+	background: rgba(0, 0, 0, 0.1);
+}
+.card-img-overlay .rating-result, .card-img-overlay h5, .card-img-overlay h4{
+	text-align: center;
+}
+.card-img-overlay .rating-result{
+	text-align: center;
+}
+.swiper{
+	-webkit-box-shadow: 0px 0px 4px 0 rgba(34, 60, 80, 0.4);
+	-moz-box-shadow: 0px 0px 4px 0 rgba(34, 60, 80, 0.4);
+	box-shadow: 0px 0px 4px 0 rgba(34, 60, 80, 0.4);
+}
+.for_btn .btn:hover, .card:hover, .swiper:hover{
+	-webkit-box-shadow: 0px 5px 10px -1px rgba(34, 60, 80, 0.6);
+	-moz-box-shadow: 0px 5px 10px -1px rgba(34, 60, 80, 0.6);
+	box-shadow: 0px 5px 10px -1px rgba(34, 60, 80, 0.6);
+}
+.card > .text{
+	z-index: 5;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+
+	left: 0;
+
+	width: 120px;
+	height: 120px;
+
+	overflow: hidden;
+}
+.card > .text > div{
+		display: flex;
+
+		align-items: center;
+		justify-content: center;
+
+		background: rgba(256, 256, 256, 1);
+
+		width: 10em;
+		height: 2em;
+
+		margin-bottom: 3em;
+		margin-left: -2.8em;
+
+		transform: rotate(-45deg);
+}
+.card > .text > div > h6{
+	animation: blink 2s linear infinite normal running 0s none;
+
+	padding: 0;
+	margin: 0;
+
+	font-family: 'URW Chancery L', cursive;
+	font-weight: bold;
+	font-weight: 0.9em;
+}
+@keyframes blink{
+	0%{
+		letter-spacing: 1px;
+		color: rgb(90, 90, 90);
+	}
+	50%{
+		letter-spacing: 2px;
+		color: gray;
+	}
+	100%{
+		letter-spacing: 1px;
+		color: rgb(90, 90, 90);
+	}
+}
+.card .btn{
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+
+.for_btn{
+	margin-top: 10px;
+}
+.for_btn .btn{
+	-webkit-box-shadow: 0px 0px 4px 0 rgba(34, 60, 80, 0.2);
+	-moz-box-shadow: 0px 0px 4px 0 rgba(34, 60, 80, 0.2);
+	box-shadow: 0px 0px 4px 0 rgba(34, 60, 80, 0.2);
+}
+.for_btn .right{
+	float: right;
+}
+.for_btn .left{
+	float: left;
+}
+
+
+hr{
+	background: linear-gradient(to left, white, black, black, white);
+}
+#Main_Base h2, #Main_Base h5{
+	color: rgb(90, 90, 90);
+}
+#Main_Base p{
+	color: dimgray;
+}
+
+/*Услуги*/
+#Services > #services_swiper .btn{
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+#services_table{
+	display: grid;
+}
+/* Полезное */
+#useful_table .card{
+	width: 50%;
+}
+#Useful .text_{
+	position: absolute;
+
+	width: 100%;
+	z-index: 100;
+
+	color: white;
+	padding: 5px 10px;
+}
+
+/*О крыме*/
+#About_Crimea iframe{
+	width: 100%;
+
+		-moz-box-shadow: 0px 2px 4px 1px rgba(34, 60, 80, 0.4);
+		-moz-box-shadow: 0px 2px 4px 1px rgba(34, 60, 80, 0.4);
+		box-shadow: 0px 2px 4px 1px rgba(34, 60, 80, 0.4);
+}
+
+#Book_of_Reviews{
+	background-image: url(../../../Image/Main/for_book_of_reviews.jpg);
+
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+#Book_of_Reviews .Base{
+	padding: 10px 0;
+}
+#Book_of_Reviews p{
+	display: block;
+	background: rgba(256, 256, 256, 0.7);
+
+	border-radius: 5px;
+	padding: 5px;
+
+	color: rgb(90, 90, 90);
+}
+#Book_of_Reviews .btn{
+	background: rgba(256, 256, 256, 0.7);
+
+	position: relative;
+
+	color: #0d6efd;
+}
+#Book_of_Reviews .btn:hover{
+	background: #0d6efd;
+
+	color: whitesmoke;
+}
+
+/* Новости */
+#news_table .card{
+	width: 33.3%;
+}
+#News .text_{
+	position: absolute;
+
+	width: 100%;
+	z-index: 100;
+
+	color: white;
+	padding: 5px 10px;
+}
+
+#Discounts .card{
+	box-shadow: 0px 2px 4px 1px rgba(34, 60, 80, 0.4);
+	-moz-box-shadow: 0px 2px 4px 1px rgba(34, 60, 80, 0.4);
+	box-shadow: 0px 2px 4px 1px rgba(34, 60, 80, 0.4);
+}
+#Discounts .card:hover{
+	box-shadow: 0px 2px 4px 1px rgba(34, 60, 80, 0.6);
+	-moz-box-shadow: 0px 2px 4px 1px rgba(34, 60, 80, 0.6);
+	box-shadow: 0px 2px 4px 1px rgba(34, 60, 80, 0.6);
+}
+#Discounts h5, #Discounts p{
+	color: white;
+}
+
+#discounts_swiper .card .card-text{
+	display: -webkit-box;
+	overflow: hidden;
+
+	-webkit-line-clamp: 4;
+	-webkit-box-orient: vertical;
+}
+#discounts_table .card .card-text{
+	display: -webkit-box;
+	overflow: hidden;
+
+	-webkit-line-clamp: 4;
+	-webkit-box-orient: vertical;
+}
+
+#Advertising_Integration{
+	box-shadow: 0px 2px 4px 1px rgba(34, 60, 80, 0.4);
+	-moz-box-shadow: 0px 2px 4px 1px rgba(34, 60, 80, 0.4);
+	box-shadow: 0px 2px 4px 1px rgba(34, 60, 80, 0.4);
+}
+#Advertising_Integration > div, #Advertising_Integration .swiper{
+	height: inherit;
+	width: 100%;
+}
+#Advertising_Integration section{
+	background: silver;
+
+	height: 100%;
+}
+#Advertising_Integration .swiper-slide, #Advertising_Integration .swiper-wrapper{
+	height: inherit;
+}
+#Actual{
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: center;
+	align-items: center;
+
+	overflow: visible;
+
+}
+#Actual .card{
+	width: 100%;
+	border-radius: 0;
+}
+#Actual .card, #Actual .swiper{
+	box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+
+	overflow: visible;
+}
+#Actual .swiper-slide {
+	background-position: center;
+	background-size: cover;
+}
+
+#Actual .swiper-slide img {
+	display: block;
+	width: 100%;
+}
+
+#Actual h5{
+	text-align: center;
+
+	color: rgb(90, 90, 90);
+
+	margin-bottom: 20px;
+}
+#Actual .card h5{
+	color: white;
+}
+
+
+/*Для анимации*/
+._anim_elements, ._anim_elements .card{
+	overflow: hidden;
+}
+
+/*Анимация появления*/
+.anim_active, .anim_active .card{
+	animation: size_grow 1s ease 1 normal running 0s backwards;
+
+	overflow: hidden;
+}
+#Main_Base .anim_active img, #Main_Base .anim_active iframe, #Main_Base .anim_active .btn{
+	animation: size_grow 1s ease 1 normal running 1s backwards;
+
+	overflow: hidden;
+}
+@keyframes size_grow{
+	0%{
+		opacity: 0;
+		transform: scale(0);
+	}
+	100%{
+		opacity: 100%;
+		transform: scale(1.0);
+	}
+}
+#Main_Base .anim_active p, #Main_Base .anim_active h5{
+	animation: move_to_left 1s ease 1 normal running 1s backwards;
+}
+@keyframes move_to_right{
+	0%{
+		opacity: 0%;
+
+		position: relative;
+		left: -120%;
+		transform: translateX(-100%);
+	}
+	100%{
+		position: relative;
+		left: 0%;
+		transform: translateX(0%);
+	}
+}
+#Main_Base .anim_active h2{
+	animation: move_to_right 1s ease 1 normal running 1s backwards;
+}
+@keyframes move_to_left{
+	0%{
+		opacity: 0%;
+
+		position: relative;
+		right: -120%;
+		transform: translateX(100%);
+	}
+	100%{
+		position: relative;
+		left: 0%;
+		transform: translateX(0%);
+	}
+}
+@media (max-width: 575.98px){
+	/*Отступы, разделяющие смысловые блоки*/
+	#Book_of_Reviews, #Advertising_Integration{
+		margin-bottom: 4.75vw;
+	}
+	.Base h2{
+		margin-bottom: 2.375vw;
+	}
+	/*Высота фрэйма в "О Крыме"*/
+	#About_Crimea iframe{
+		height: 57vw;
+	}
+	/*Высота слайдера-свайпера*/
+	#Slider .swiper {
+	  height: 57vw;
+	}
+	#discounts_swiper, #news_swiper,#services_swiper, #useful_swiper{
+		width: 95vw;
+	}
+	#discounts_swiper .card img, #news_swiper .card img, #services_swiper .card img, #useful_swiper .card img{
+		height: 66.5vw;
+	}
+	#Advertising_Integration{
+		height: 76vw;
+	}
+
+	#Actual .card img, #Actual .swiper{
+		height: 80vw;
+		width: 85.5vw;
+	}
+
+
+	#services_swiper .card .card-text, #news_swiper .card .card-text, #useful_swiper .card .card-text{
+		display: -webkit-box;
+		overflow: hidden;
+
+		-webkit-line-clamp: 7;
+  	-webkit-box-orient: vertical;
+	}
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+	/*Отступы, разделяющие смысловые блоки*/
+	#Book_of_Reviews, #Advertising_Integration{
+		margin-bottom: 4.75vw;
+	}
+	.Base h2{
+		margin-bottom: 2.375vw;
+	}
+	/*Высота фрэйма в "О Крыме"*/
+	#About_Crimea iframe{
+		height: 57vw;
+	}
+	/*Высота слайдера-свайпера*/
+	#Slider .swiper {
+	  height: 57vw;
+	}
+	#discounts_swiper, #news_swiper, #services_swiper, #useful_swiper{
+		width: 95vw;
+	}
+	#discounts_swiper .card img, #news_swiper .card img, #services_swiper .card img, #useful_swiper .card img{
+		height: 66.5vw;
+	}
+	#Advertising_Integration{
+		height: 57vw;
+	}
+
+
+	#Actual .card img, #Actual .swiper{
+		height: 80vw;
+		width: 85.5vw;
+	}
+
+
+	#services_swiper .card .card-text, #news_swiper .card .card-text, #useful_swiper .card .card-text{
+		display: -webkit-box;
+		overflow: hidden;
+
+		-webkit-line-clamp: 7;
+  	-webkit-box-orient: vertical;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+	/*Отступы, разделяющие смысловые блоки*/
+	#Book_of_Reviews, #Advertising_Integration{
+		margin-bottom: 4.75vw;
+	}
+	.Base h2{
+		margin-bottom: 2.375vw;
+	}
+	/*Высота фрэйма в "О Крыме"*/
+	#About_Crimea iframe{
+		height: 57vw;
+	}
+	/*Высота слайдера-свайпера*/
+	#Slider .swiper {
+	  height: 57vw;
+	}
+	#discounts_table, #news_table, #services_table, #useful_table{
+		padding: 0 8px;
+	}
+	#news_table .card img, #services_table .card img{
+		height: 24vw;
+	}
+	#discounts_table .card img, #useful_table .card img{
+		height: 33.25vw;
+	}
+	#discounts_table .card, #news_table .card, #services_table .card, #useful_table .card{
+			margin: 0 4px;
+	}
+	#Advertising_Integration{
+		height: 42.75vw;
+	}
+
+	#Actual .card img, #Actual .swiper{
+		height: 28vw;
+	}
+	
+	#services_table .card .card-text{
+		display: -webkit-box;
+		overflow: hidden;
+
+		-webkit-line-clamp: 7;
+  	-webkit-box-orient: vertical;
+	}
+	#news_table .card .card-text, #useful_table .card .card-text{
+		display: -webkit-box;
+		overflow: hidden;
+
+		-webkit-line-clamp: 7;
+  	-webkit-box-orient: vertical;
+	}
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+	/*Отступы, разделяющие смысловые блоки*/
+	#Book_of_Reviews, #Advertising_Integration{
+		margin-bottom: 4.5vw;
+	}
+	.Base h2{
+		margin-bottom: 2.25vw;
+	}
+	/*Высота фрэйма в "О Крыме"*/
+	#About_Crimea iframe{
+		height: 54vw;
+	}
+	/*Высота слайдера-свайпера*/
+	#Slider .swiper {
+	  height: 95vh;
+	}
+	#discounts_table, #news_table, #services_table, #useful_table{
+		padding: 0 4px;
+	}
+	#news_table .card img, #services_table .card img{
+		height: 21vw;
+	}
+	#discounts_table .card img, #useful_table .card img{
+		height: 31.5vw;
+	}
+	#discounts_table .card, #news_table .card, #services_table .card, #useful_table .card{
+			margin: 0 8px;
+	}
+	#Advertising_Integration{
+		height: 27vw;
+	}
+
+	#Actual .card img, #Actual .swiper{
+		height: 28vw;
+	}
+
+
+
+	#services_table .card .card-text{
+		display: -webkit-box;
+		overflow: hidden;
+
+		-webkit-line-clamp: 7;
+  	-webkit-box-orient: vertical;
+	}
+	#news_table .card .card-text, #useful_table .card .card-text{
+		display: -webkit-box;
+		overflow: hidden;
+
+		-webkit-line-clamp: 5;
+  	-webkit-box-orient: vertical;
+	}
+}
+
+@media (min-width: 1200px) and (max-width: 1399.98px){
+	/*Отступы, разделяющие смысловые блоки*/
+	#Book_of_Reviews, #Advertising_Integration{
+		margin-bottom: 4vw;
+	}
+	.Base h2{
+		margin-bottom: 2vw;
+	}
+	/*Высота фрэйма в "О Крыме"*/
+	#About_Crimea iframe{
+		height: 24vw;
+	}
+	/*Высота слайдера-свайпера*/
+	#Slider .swiper {
+	  height: 95vh;
+	}
+	#news_table .card img, #services_table .card img{
+		height: 23.4vw;
+	}
+	#discounts_table .card img, #useful_table .card img{
+		height: 28vw;
+	}
+	#discounts_table .card, #news_table .card, #services_table .card, #useful_table .card{
+			margin: 0 12px;
+	}
+	#Advertising_Integration{
+		height: 24vw;
+	}
+
+	#Actual .card img, #Actual .swiper{
+		height: 25vw;
+	}
+
+
+
+	#services_table .card .card-text{
+		display: -webkit-box;
+		overflow: hidden;
+
+		-webkit-line-clamp: 9;
+  	-webkit-box-orient: vertical;
+	}
+	#news_table .card .card-text, #useful_table .card .card-text{
+		display: -webkit-box;
+		overflow: hidden;
+
+		-webkit-line-clamp: 7;
+  	-webkit-box-orient: vertical;
+	}
+}
+
+@media (min-width: 1400px){
+	#Book_of_Reviews, #Advertising_Integration{
+		margin-bottom: 4.25rem;
+	}
+	.Base h2{
+		margin-bottom: 2.125rem;
+	}
+	/*Высота фрэйма в "О Крыме"*/
+	#About_Crimea iframe{
+		height: 30rem;
+	}
+	/*Высота слайдера-свайпера*/
+	#Slider .swiper {
+	  height: 100vh;
+	}
+	#news_table .card img, #services_table .card img{
+		height: 26rem;
+	}
+	#discounts_table .card img, #useful_table .card img{
+		height: 29.75rem;
+	}
+	#discounts_table .card, #news_table .card, #services_table .card, #useful_table .card{
+			margin: 0 12px;
+	}
+	#Advertising_Integration{
+		height: 25.5vw;
+	}
+
+	#Actual .card img, #Actual .swiper{
+		height: 26rem;
+	}
+
+	#services_table .card .card-text, #news_table .card .card-text, #useful_table .card .card-text{
+		display: -webkit-box;
+		overflow: hidden;
+
+		-webkit-line-clamp: 8;
+  	-webkit-box-orient: vertical;
+	}
+}

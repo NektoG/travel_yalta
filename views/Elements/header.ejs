@@ -1,0 +1,76 @@
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark">
+  <div class="container-fluid">
+    <% if(active['Main'] != 0){ %>
+    <a class="navbar-brand" href="/">TravelYalta</a>
+    <% } %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Переключатель навигации">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+      	<li class="nav-item">
+        <% if(active['Service_Tours'] != 0 || active['Service_Excursions'] != 0 || active['Service_Routes'] != 0 || active['Service_Add'] != 0){ %>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Услуги
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <% if(active['Service_Tours'] != 0){ %>
+            <li><a class="dropdown-item" href="/type_services/Service_Tours">Организация туров</a></li>
+            <% } %>
+            <% if(active['Service_Excursions'] != 0){ %>
+            <li><a class="dropdown-item" href="/type_services/Service_Excursions">Экскурсии по Ялте</a></li>
+            <% } %>
+            <% if(active['Service_Routes'] != 0){ %>
+            <li><a class="dropdown-item" href="/type_services/Services_Routes">Разработка маршрутов</a></li>
+            <% } %>
+            <% if(active['Service_Add'] != 0){ %>
+            <li><a class="dropdown-item" href="/type_services/Services_Add">Дополнительные услуги</a></li>
+            <% } %>
+            <% if(active['Type_Services'] != 0){ %>
+            <li class="black"><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="/type_services">Описание направлений</a></li>
+            <% } %>
+          </ul>
+        </li>
+        <% } %>
+        <% if(active['News'] != 0 || active['Useful'] != 0 || active['Actual'] != 0 || active['Discounts'] != 0){ %>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" aria-current="page" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Инфо
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <% if(active['News'] != 0){ %>
+            <li><a class="dropdown-item" href="/News">Новости</a></li>
+            <% } %>
+            <% if(active['Useful'] != 0){ %>
+            <li><a class="dropdown-item" href="/Useful">Полезное</a></li>
+            <% } %>
+            <% if(active['Actual'] != 0){ %>
+            <li><a class="dropdown-item" href="/Actual_Type">Актуальное</a></li>
+            <% } %>
+            <% if(active['Discounts'] != 0){ %>
+            <li><a class="dropdown-item" href="/Discounts">Cпецпредложения</a></li>
+            <% } %>
+          </ul>
+        </li>
+        <% } %>
+        <% if(active['Book_of_Reviews'] != 0){ %>
+        <li class="nav-item">
+          <a class="nav-link" href="/Book_of_reviews">Отзывы</a>
+        </li>
+        <% } %>
+        <% if(active['Album'] != 0){ %>
+        <li class="nav-item">
+          <a class="nav-link" href="/Album">Альбом</a>
+        </li>
+        <% } %>
+        <% if(active['Actual'] != 0){ %>
+        <li class="nav-item">
+          <a class="nav-link" href="/Actual_Type">Отели</a>
+        </li>
+        <% } %>
+      </ul>
+    </div>
+  </div>
+</nav>

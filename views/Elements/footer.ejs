@@ -1,0 +1,44 @@
+<div id="footer">
+	<div class="Base g-0">
+		<div class="d-block d-md-flex g-0">
+			<% if(footer_about_us != undefined && footer_about_us[0]['Topic'] != '' && footer_about_us[0]['Desctiption'] != ''){ %>
+			<div class="col">
+		        <h3><%= footer_about_us[0]['Topic'] %></h3>
+						<hr>
+		        <p><%= footer_about_us[0]['Description'] %></p>
+		    </div>
+				<% } %>
+				<% if(footer_contacts_topic != undefined){ %>
+		    <div class="col" id="contacts">
+				<h3><%= footer_title_for_contacts[0]['Topic']; %></h3>
+				<hr>
+        <ul>
+					<% for(let i = 0; i < footer_contacts_topic.length; i++) { %>
+					<% if(footer_contacts_topic[i]['Topic'] != 0 && footer_contacts_topic[i]['Type'] != 0){%>
+          <li>
+              <h4><%= footer_contacts_topic[i]['Topic']; %>:</h4>
+							<% if(footer_contacts_topic[i]['Type'] === 1) { %>
+							<span>
+							<% let point = 0;%>
+							<%for(let j = 0; j < footer_contacts_item.length; j++){%>
+							<% if(footer_contacts_item[j]['num_topic'] === footer_contacts_topic[i]['ID']) { %>
+							<% if(point > 0) { %>•<% } %> <a target='_blank' href="<%= footer_contacts_item[j]['Link'] %>"><%= footer_contacts_item[j]['Name'] %></a>
+							<% point += 1; %>
+							<% } %>
+							<% } %>
+							</span>
+							<% } else if(footer_contacts_topic[i]['Type'] === 2){ %>
+							<%for(let j = 0; j < footer_contacts_item.length; j++){%>
+							<% if(footer_contacts_item[j]['num_topic'] === footer_contacts_topic[i]['ID']) { %>
+              <p><%= footer_contacts_item[j]['Name'] %></p>
+							<% } %>
+							<% } %>
+							<% } %>
+          </li>
+					<% } } %>
+        </ul>
+		    </div>
+				<% } %>
+		</div>
+	</div>
+</div>

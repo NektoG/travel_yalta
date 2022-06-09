@@ -1,0 +1,272 @@
+#Main_Base > .Base > section > h3, #Introduction > div > h3{
+	color: rgb(90, 90, 90);
+}
+#Main_Base > .Base > section > h5, #Introduction > div > h5{
+	color: dimgray;
+}
+.hr{
+	background: silver;
+
+	width: 100%;
+	height: 1px;
+}
+.swiper {
+	width: 100%;
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+.swiper-slide {
+	background-position: center;
+	background-size: cover;
+	width: 300px;
+	height: 300px;
+}
+
+.swiper-slide img {
+	display: block;
+	width: 100%;
+}
+
+.mySwiper .card, .shower-slide{
+	width: 100%;
+	height: 100%;
+}
+
+.Slider .card{
+	-webkit-box-shadow: 0px 2px 4px 1px rgba(34, 60, 80, 0.4);
+	-moz-box-shadow: 0px 2px 4px 1px rgba(34, 60, 80, 0.4);
+	box-shadow: 0px 2px 4px 1px rgba(34, 60, 80, 0.4);
+}
+.Slider .swiper-slide-prev{
+	-webkit-box-shadow: -4px 2px 4px 1px rgba(34, 60, 80, 0.5);
+	-moz-box-shadow: -4px 2px 4px 1px rgba(34, 60, 80, 0.5);
+	box-shadow: -4px 2px 4px 1px rgba(34, 60, 80, 0.5);
+}
+.swiper-slide-next{
+	-webkit-box-shadow: 4px 2px 4px 1px rgba(34, 60, 80, 0.5);
+	-moz-box-shadow: 4px 2px 4px 1px rgba(34, 60, 80, 0.5);
+	box-shadow: 4px 2px 4px 1px rgba(34, 60, 80, 0.5);
+}
+.Slider .swiper-slide-active{
+	-webkit-box-shadow: 0px 2px 4px 1px rgba(34, 60, 80, 0.6);
+	-moz-box-shadow: 0px 2px 4px 1px rgba(34, 60, 80, 0.6);
+	box-shadow: 0px 2px 4px 1px rgba(34, 60, 80, 0.6);
+}
+
+.Content div{
+	padding: 12px;
+}
+.Content img{
+	-webkit-box-shadow: 0px 2px 4px 1px rgba(34, 60, 80, 0.4);
+	-moz-box-shadow: 0px 2px 4px 1px rgba(34, 60, 80, 0.4);
+	box-shadow: 0px 2px 4px 1px rgba(34, 60, 80, 0.4);
+}
+.Content img:hover{
+	-webkit-box-shadow: 0px 2px 4px 1px rgba(34, 60, 80, 0.6);
+	-moz-box-shadow: 0px 2px 4px 1px rgba(34, 60, 80, 0.6);
+	box-shadow: 0px 2px 4px 1px rgba(34, 60, 80, 0.6);
+}
+
+#Zoom{
+	position: fixed;
+
+	border-radius: 5px;
+	border: 2px solid silver;
+
+	z-index: 10000;
+}
+
+#Zoom_Img{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+#Zoom button{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+
+	background: white;
+
+	border-radius: 50%;
+
+	padding: 2px;
+	margin: 5px;
+
+	font-size: 2em;
+}
+#Zoom button span{
+	margin-top: -5px;
+}
+.invis{
+	display: none;
+}
+
+
+@keyframes blink{
+	0%{
+		opacity: 0;
+	}
+	100%{
+	}
+}
+@keyframes to_up{
+	0%{
+		opacity: 0;
+		transform: translate(-50%, 100%);
+	}
+	100%{
+		opacity: 100%;
+		transform: translate(-50%, 0);
+	}
+}
+/*Для анимации*/
+._anim_elements, ._anim_elements .card{
+	overflow: hidden;
+}
+.kek, .kek *{
+	height: 0px;
+
+	visibility: hidden;
+}
+
+/*Анимация появления*/
+.anim_active, .anim_active .card{
+	animation: size_grow 1s ease 1 normal running 0s backwards;
+
+	overflow: hidden;
+}
+#Main_Base .anim_active img{
+	animation: size_grow 1s ease 1 normal running 1s backwards;
+
+	overflow: hidden;
+}
+@keyframes size_grow{
+	0%{
+		opacity: 0;
+		transform: scale(0);
+	}
+	100%{
+		opacity: 100%;
+		transform: scale(1.0);
+	}
+}
+#Main_Base .anim_active h5{
+	animation: move_to_left 1s ease 1 normal running 1s backwards;
+}
+@keyframes move_to_right{
+	0%{
+		opacity: 0%;
+
+		position: relative;
+		left: -120%;
+		transform: translateX(-100%);
+	}
+	100%{
+		position: relative;
+		left: 0%;
+		transform: translateX(0%);
+	}
+}
+#Main_Base .anim_active h3, #Main_Base .anim_active h4, #Main_Base .anim_active .rating-result{
+	animation: move_to_right 1s ease 1 normal running 1s backwards;
+}
+@keyframes move_to_left{
+	0%{
+		opacity: 0%;
+
+		position: relative;
+		right: -120%;
+		transform: translateX(100%);
+	}
+	100%{
+		position: relative;
+		left: 0%;
+		transform: translateX(0%);
+	}
+}
+@media (max-width: 575.98px){
+	#Zoom{
+		width: 95vw;
+		height: 85.5vw;
+
+		left: 50%;
+		top: 50%;
+
+		transform: translate(-50%, -50%);
+
+		animation: blink 1s ease 1 normal running 0s backwards;
+	}
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+	#Zoom{
+		width: 95vw;
+		height: 85.5vw;
+
+		left: 50%;
+		top: 50%;
+
+		transform: translate(-50%, -50%);
+
+		animation: blink 1s ease 1 normal running 0s backwards;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+	#Zoom{
+		width: 95vw;
+		height: 85.5vw;
+
+		left: 50%;
+		top: 50%;
+
+		transform: translate(-50%, -50%);
+
+		animation: blink 1s ease 1 normal running 0s backwards;
+	}
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+	#Zoom{
+		width: 54vw;
+		height: 48.6vw;
+
+		left: 50%;
+		bottom: 0;
+
+		transform: translate(-50%, 0);
+
+		animation: to_up 2s ease 1 normal running 0s backwards;
+	}
+}
+
+@media (min-width: 1200px) and (max-width: 1399.98px){
+	#Zoom{
+		width: 54vw;
+		height: 48.6vw;
+
+		left: 50%;
+		bottom: 0;
+
+		transform: translate(-50%, 0);
+
+		animation: to_up 2s ease 1 normal running 0s backwards;
+	}
+}
+
+@media (min-width: 1400px){
+	#Zoom{
+		width: 54rem;
+		height: 48.6rem;
+
+		left: 50%;
+		bottom: 0;
+
+		transform: translate(-50%, 0);
+
+		animation: to_up 2s ease 1 normal running 0s backwards;
+	}
+}

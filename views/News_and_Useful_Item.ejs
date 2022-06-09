@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="content-language" content="ru">
+	<meta name="description" content="<%= real_description %>">
+	<meta name="keywords" content="<%= real_keywords %>">
+
+	<meta name="application-name" content="<%= real_name_project %>">
+	<meta name="generator" content="Node JS">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title><% for(var i=0; i < name_cite.length; i++) { %><%if(name_cite[i]['Cite'] === type_cite){%><%= name_cite[i]['Name'] %> <% } %><% } %><%= real_name_project %></title>
+	<link rel="shortcut icon" href="<%= image_favicon %><%= favicon[0]['Link'] %>">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
+	<link rel="stylesheet" href="../Source/default/css/resource.css">
+	<link rel="stylesheet" href="../Source/Elements/Header/css/resource.css">
+	<link rel="stylesheet" href="../Source/News_and_Useful_Item/css/resource.css">
+	<link rel="stylesheet" href="../Source/Elements/Footer/css/resource.css">
+</head>
+<body>
+	<%- include ('Elements/header.ejs'); %>
+	<% if(card[item] != null && card[item] != undefined && content[item] != null && content[item] != undefined) {%>
+  <div id="Main_Base">
+    <div class="Base row g-0">
+    	<div class="col-12 col-md-6 _anim_elements kek">
+    		<section class="photo _anim_elements kek">
+    			<div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper mySwiper2">
+			      <div class="swiper-wrapper d-flex">
+							<% if(data_type_info[0] === 0 || data_type_info[1] === 0 || data_type_info[2] === 0 || data_type_info[3] === 0 || data_type_info[4] === 0){ %>
+								<% for(let j = 1; j <= 5; j++){ %>
+									<% if(data_type_info[(j-1)] === 1){ %>
+										<div class="swiper-slide">
+											<iframe src="<%= content[item][`С_${j}`]%>" allow="autoplay; encrypted-media; fullscreen; picture-in-picture;" frameborder="0" allowfullscreen></iframe>
+										</div>
+									<% } else {%>
+										<div class="swiper-slide">
+											<img src="<% if(data_type_img[(j-1)] === 0){ %><%= img_link %><%= (item+1) %>/<% } %><%= content[item][`С_${j}`]%>" />
+										</div>
+									<% } } %>
+							<% } else {%>
+								<div class="swiper-slide">
+									<img src="../Image/Default/for_slider/1.jpg" />
+								</div>
+								<div class="swiper-slide">
+									<img src="../Image/Default/for_slider/2.jpg" />
+								</div>
+								<div class="swiper-slide">
+									<img src="../Image/Default/for_slider/3.jpg" />
+								</div>
+							<% } %>
+			      </div>
+			      <div class="swiper-button-next"></div>
+			      <div class="swiper-button-prev"></div>
+			    </div>
+			    <div class="swiper mySwiper">
+			      <div class="swiper-wrapper d-flex">
+							<% if(data_type_info[0] === 0 || data_type_info[1] === 0 || data_type_info[2] === 0 || data_type_info[3] === 0 || data_type_info[4] === 0){ %>
+								<% for(let j = 1; j <= 5; j++){ %>
+								<% if(data_type_info[(j-1)] === 0){ %>
+									<div class="swiper-slide">
+										<img src="<% if(data_type_img[(j-1)] === 0){ %><%= img_link %><%= (item+1) %>/<% } %><%= content[item][`С_${j}`]%>" />
+									</div>
+								<% } else {%>
+									<div class="swiper-slide">
+										<img src="<% if(data_type_info_id[(j-1)] === 0){ %><%= img_link %><%= (item+1) %>/<%= content[item]['ID'] %>/<% } %><%= content[item][`A_${j}`]%>" />
+									</div>
+								<% } } %>
+							<% } else {%>
+								<div class="swiper-slide">
+									<img src="../Image/Default/for_slider/1.jpg" />
+								</div>
+								<div class="swiper-slide">
+									<img src="../Image/Default/for_slider/2.jpg" />
+								</div>
+								<div class="swiper-slide">
+									<img src="../Image/Default/for_slider/3.jpg" />
+								</div>
+							<% } %>
+			      </div>
+			    </div>
+			  </section>
+	    </div>
+    	<div class="col-12 col-md-6 text _anim_elements kek">
+    		<section>
+    			<h4><%= card[item]['Topic']%></h4>
+					<hr>
+    			<p><%= card[item]['Description']%></p>
+    		</section>
+				<section>
+					<h6><%= card[item]['Additionaly']%></h6>
+				</section>
+				<hr>
+    		<section>
+    			<h4>Более подробно вы можете прочитать, перейдя по <a target="_blank" href="<%= card[item]['Link']%>">ссылке</a></h4>
+    		</section>
+    	</div>
+    </div>
+  </div>
+	<% } %>
+  <%- include ('Elements/footer.ejs'); %>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+  <script src="../Source/News_and_Useful_Item/js/for_slider.js"></script>
+	<script src="../Source/default/js/for_anim_move_up.js"></script>
+</body>
+</html>

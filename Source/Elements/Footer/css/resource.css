@@ -1,0 +1,97 @@
+#footer{
+    background: rgb(5, 28, 56);
+
+    color: whitesmoke;
+	font-family: "Alegreya", serif;
+
+	overflow: hidden;
+}
+#footer a{
+	text-decoration: none;
+}
+#footer h3{
+	text-align: center;
+}
+#footer hr{
+  background: white;
+}
+#footer #contacts ul{
+	padding: 0;
+
+  text-align: left;
+}
+#footer #contacts span, #footer #contacts p, #footer #contacts h4{
+  display: inline;
+}
+#footer #contacts p, #footer #contacts span{
+  float: right;
+}
+#footer #contacts li{
+    margin-bottom: 15px;
+    list-style: none;
+}
+#footer #contacts p{
+  color: blue;
+}
+.col{
+  padding: 0 10px;
+}
+
+@media (max-width: 575.98px){
+	#footer h3{
+		text-align: left;
+	}
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+	#footer h3{
+		text-align: left;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+	#footer .col {
+		margin: 0 4px;
+	}
+	#footer .row{
+		margin: 0 -4px;
+	}
+	#footer h3{
+		text-align: center;
+	}
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+	#footer .col {
+		margin: 0 8px;
+	}
+	#footer .row{
+		margin: 0 -8px;
+	}
+	#footer h3{
+		text-align: center;
+	}
+}
+
+@media (min-width: 1200px) and (max-width: 1399.98px){
+	#footer .col, #actual_table .card{
+			margin: 0 12px;
+	}
+	#footer .row{
+		margin: 0 -12px;
+	}
+	#footer h3{
+		text-align: center;
+	}
+}
+
+@media (min-width: 1400px){
+	#footer .col{
+		margin: 0 12px;
+	}
+	#footer .row{
+		margin: 0 -12px;
+	}
+	#footer h3{
+		text-align: center;
+	}
+}

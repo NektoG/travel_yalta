@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="content-language" content="ru">
+	<meta name="description" content="<%= real_description %>">
+	<meta name="keywords" content="<%= real_keywords %>">
+
+	<meta name="application-name" content="<%= real_name_project %>">
+	<meta name="generator" content="Node JS">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title><% for(var i=0; i < name_cite.length; i++) { %><%if(name_cite[i]['Cite'] === 'Main'){%><%= name_cite[i]['Name'] %> <% } %><% } %><%= real_name_project %></title>
+	<link rel="shortcut icon" href="<%= image_favicon %><%= favicon[0]['Link'] %>">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
+	<link rel="stylesheet" href="Source/default/css/resource.css">
+	<link rel="stylesheet" href="Source/Elements/Header/css/resource.css">
+	<link rel="stylesheet" href="Source/Main/css/resource.css">
+	<link rel="stylesheet" href="Source/Elements/Footer/css/resource.css">
+</head>
+<body>
+	<%- include ('Elements/header.ejs'); %>
+	<div id="Slider">
+		<div class="swiper" id="slider_swiper">
+		  <div class="swiper-wrapper">
+		    <div class="swiper-slide">
+		    	<img src="/Image/Main/Slider_Photo/1.jpg" alt="Photo_1">
+		    </div>
+		    <div class="swiper-slide">
+		    	<img src="/Image/Main/Slider_Photo/2.jpg" alt="Photo_2">
+		    </div>
+		    <div class="swiper-slide">
+		    	<img src="/Image/Main/Slider_Photo/3.jpg" alt="Photo_3">
+		    </div>
+		  </div>
+		</div>
+	</div>
+	<div id="Main_Base">
+		<div class="Base">
+			<%if(description[0]['Topic'] != '' || description[0]['Description'] != '' && true_block['Description'] != 0){%>
+			<section id="Description" class="_anim_elements kek">
+				<div>
+					<%if(description[0]['Topic'] != ''){%>
+					<h2><%= description[0]['Topic'] %></h2>
+					<%}%>
+					<%if(description[0]['Description'] != ''){%>
+				  <p><%= description[0]['Description'] %></p>
+					<%}%>
+				</div>
+			</section>
+			<%}%>
+			<hr class="_anim_elements kek">
+			<%if((for_crimea[0]['Topic'] != '' || for_crimea[0]['Description'] != '') && for_crimea[0]['Iframe'] != '' && true_block['About_Crimea'] != 0){%>
+			<section id="About_Crimea" class="row _anim_elements kek">
+				<div class="col-xl-6 col-lg-12">
+					<iframe src="<%= for_crimea[0]['Iframe'] %>" allow="autoplay; encrypted-media; fullscreen; picture-in-picture;" frameborder="0" allowfullscreen></iframe>
+				</div>
+				<div class="col-xl-6 col-lg-12">
+					<%if(for_crimea[0]['Topic'] != ''){%>
+					<h5><%= for_crimea[0]['Topic'] %></h5>
+					<%}%>
+					<%if(for_crimea[0]['Description'] != ''){%>
+				  <p><%= for_crimea[0]['Description'] %></p>
+					<%}%>
+				</div>
+			</section>
+			<%}%>
+			<hr class="_anim_elements kek">
+			<%if(service != null && service != undefined  && true_block['Services'] != 0){%>
+			<section class="row _anim_elements kek" id="Services">
+				<h2><%= section_elements[0]['Topic'] %></h2>
+				<div class="d-none d-md-flex g-0" id="services_table">
+						<% for(var i=0; i < service.length; i++) { %>
+			    	<div class="card col p-0">
+							<%if(service[i]['Rating'] != null){%>
+			    	  <div class="rating-result">
+								<% for(var k=0; k < 5; k++) { %>
+									<%if(k < service[i]['Rating']){%>
+						   			<span class="active"></span>
+									<%} else {%>
+						   			<span></span>
+							 		<%}%>
+							 <%}%>
+					  </div>
+						<%}%>
+					  <div class="Slider">
+							<div class="swiper_img">
+							  <div class="swiper-wrapper">
+									<% if(data_type_info[i][0] === 1 || data_type_info[i][1] === 1 || data_type_info[i][2] === 1 || data_type_info[i][3] === 1 || data_type_info[i][4] === 1){ %>
+										<% for(let j = 1; j <= 5; j++) { %>
+										<% if(data_type_info[i][(j-1)] === 1){ %>
+											<% if(service_content[i][`С_${j}`] != '' && service_content[i][`С_${j}`] != null) { %>
+											<div class="swiper-slide">
+												<img src="<% if(data_type_img[i][(j-1)] === 0){ %><%= service[i]['Img_Link'] %>/<% } %><%= service_content[i][`С_${j}`]%>" />
+											</div>
+										<% } } } %>
+									<% } else {%>
+										<div class="swiper-slide">
+											<img src="/Image/Default/for_slider/1.jpg" />
+										</div>
+										<div class="swiper-slide">
+											<img src="/Image/Default/for_slider/2.jpg" />
+										</div>
+										<div class="swiper-slide">
+											<img src="/Image/Default/for_slider/3.jpg" />
+										</div>
+									<% } %>
+							  </div>
+							</div>
+						  </div>
+							<%if(service[i]['Topic'] != '' || service[i]['Desc_2'] != ''){%>
+						  <div class="card-body">
+								<%if(service[i]['Topic'] != ''){%>
+						    <h5 class="card-title"><%= service[i]['Topic']%></h5>
+								<% } %>
+								<%if(service[i]['Desc_2'] != ''){%>
+						    <p class="card-text"><%= service[i]['Desc_2']%></p>
+								<% } %>
+						  </div>
+							<% } %>
+						<%if(service[i]['Link'] != ''){%>
+						<a href="<%= service[i]['Link'] %>" class="btn btn-primary">Подробнее...</a>
+						<% } %>
+					</div>
+					<% } %>
+				</div>
+				<div class="d-block d-md-none swiper swipers" id="services_swiper">
+				  <div class="swiper-wrapper">
+						<% for(var i=0; i < service.length; i++) { %>
+					    <div class="swiper-slide col-md-12">
+					    	<div class="swipe_img">
+								<img src="/Image/Default//output-onlinegiftools.gif" alt="photo_swippe">
+							</div>
+					    	<div class="card">
+									<%if(service[i]['Rating'] != null){%>
+					    	  <div class="rating-result">
+										<% for(var k=0; k < 5; k++) { %>
+											<%if(k < service[i]['Rating']){%>
+								   			<span class="active"></span>
+											<%} else {%>
+								   			<span></span>
+									 		<%}%>
+									 <%}%>
+							  </div>
+								<%}%>
+							  <div class="Slider">
+								<div class="swiper_img">
+								  <div class="swiper-wrapper">
+										<% if(data_type_info[i][0] === 1 || data_type_info[i][1] === 1 || data_type_info[i][2] === 1 || data_type_info[i][3] === 1 || data_type_info[i][4] === 1){ %>
+											<% for(let j = 1; j <= 5; j++) { %>
+											<% if(data_type_info[i][(j-1)] === 1){ %>
+												<% if(service_content[i][`С_${j}`] != '' && service_content[i][`С_${j}`] != null) { %>
+												<div class="swiper-slide">
+													<img src="<% if(data_type_img[i][(j-1)] === 0){ %><%= service[i]['Img_Link'] %>/<% } %><%= service_content[i][`С_${j}`]%>" />
+												</div>
+											<% } } } %>
+										<% } else {%>
+											<div class="swiper-slide">
+												<img src="/Image/Default/for_slider/1.jpg" />
+											</div>
+											<div class="swiper-slide">
+												<img src="/Image/Default/for_slider/2.jpg" />
+											</div>
+											<div class="swiper-slide">
+												<img src="/Image/Default/for_slider/3.jpg" />
+											</div>
+										<% } %>
+								  </div>
+								</div>
+							  </div>
+								<%if(service[i]['Topic'] != '' || service[i]['Desc_2'] != ''){%>
+							  <div class="card-body">
+									<%if(service[i]['Topic'] != ''){%>
+							    <h5 class="card-title"><%= service[i]['Topic']%></h5>
+									<% } %>
+									<%if(service[i]['Desc_2'] != ''){%>
+							    <p class="card-text"><%= service[i]['Desc_2']%></p>
+									<% } %>
+							  </div>
+								<% } %>
+							<%if(service[i]['Link'] != ''){%>
+							<a href="<%= service[i]['Link'] %>" class="btn btn-primary">Подробнее.</a>
+							<% } %>
+							</div>
+					    </div>
+						<% } %>
+				  </div>
+				</div>
+				<%if(section_elements[0]['Link'] != ''){%>
+				<div class="for_btn">
+					<a href="<%= section_elements[0]['Link'] %>" class="right btn btn-outline-primary">Все услуги &#10148;</a>
+				</div>
+				<% } %>
+			</section>
+			<%}%>
+
+			<%if(useful != null && useful != undefined  && true_block['Useful'] != 0){%>
+			<section class="row _anim_elements kek p-0" id="Useful">
+				<h2><%= section_elements[1]['Topic'] %></h2>
+				<div class="d-none d-md-flex p-0" id="useful_table">
+						<% for(var i=0; i < useful.length; i++) { %>
+			    	<div class="card">
+						<%if(useful_card[i]['Additionaly'] != null){%>
+			    	  <div class="text_">
+								<%= useful_card[i]['Additionaly']; %>
+						  </div>
+						<%}%>
+					  <div class="Slider">
+							<div class="swiper_img">
+							  <div class="swiper-wrapper">
+									<% if(data_type_info_useful[i][0] === 1 || data_type_info_useful[i][1] === 1 || data_type_info_useful[i][2] === 1 || data_type_info_useful[i][3] === 1 || data_type_info_useful[i][4] === 1){ %>
+										<% for(let j = 1; j <= 5; j++) { %>
+										<% if(data_type_info_useful[i][(j-1)] === 1){ %>
+											<% if(useful_content[i][`С_${j}`] != '' && useful_content[i][`С_${j}`] != null) { %>
+											<div class="swiper-slide">
+												<img src="<% if(data_type_img_useful[i][(j-1)] === 0){ %><%= img_link_useful; %>/<% } %><%= useful_content[i][`С_${j}`]%>" />
+											</div>
+										<% } } } %>
+									<% } else {%>
+										<div class="swiper-slide">
+											<img src="/Image/Default/for_slider/1.jpg" />
+										</div>
+										<div class="swiper-slide">
+											<img src="/Image/Default/for_slider/2.jpg" />
+										</div>
+										<div class="swiper-slide">
+											<img src="/Image/Default/for_slider/3.jpg" />
+										</div>
+									<% } %>
+							  </div>
+							</div>
+						  </div>
+							<%if(useful_card[i]['Topic'] != '' || useful_card[i]['Description'] != ''){%>
+						  <div class="card-body">
+								<%if(useful_card[i]['Topic'] != ''){%>
+						    <h5 class="card-title"><%= useful_card[i]['Topic']%></h5>
+								<% } %>
+								<%if(useful_card[i]['Description'] != ''){%>
+						    <p class="card-text"><%= useful_card[i]['Description']%></p>
+								<% } %>
+						  </div>
+							<% } %>
+						<%if(link_useful != ''){%>
+						<a href="<%= link_useful %>" class="btn btn-primary">Подробнее...</a>
+						<% } %>
+					</div>
+					<% } %>
+				</div>
+				<div class="d-block d-md-none swiper swipers" id="useful_swiper">
+				  <div class="swiper-wrapper">
+						<% for(var i=0; i < useful.length; i++) { %>
+					    <div class="swiper-slide col-12">
+					    	<div class="swipe_img">
+								<img src="/Image/Default//output-onlinegiftools.gif" alt="photo_swippe">
+							</div>
+					    	<div class="card">
+							<%if(useful_card[i]['Additionaly'] != null){%>
+				    	  <div class="text_">
+									<%= useful_card[i]['Additionaly']; %>
+							  </div>
+							<%}%>
+							  <div class="Slider">
+								<div class="swiper_img">
+								  <div class="swiper-wrapper">
+										<% if(data_type_info_useful[i][0] === 1 || data_type_info_useful[i][1] === 1 || data_type_info_useful[i][2] === 1 || data_type_info_useful[i][3] === 1 || data_type_info_useful[i][4] === 1){ %>
+											<% for(let j = 1; j <= 5; j++) { %>
+											<% if(data_type_info_useful[i][(j-1)] === 1){ %>
+												<% if(useful_content[i][`С_${j}`] != '' && useful_content[i][`С_${j}`] != null) { %>
+												<div class="swiper-slide">
+													<img src="<% if(data_type_img_useful[i][(j-1)] === 0){ %><%= img_link_useful; %>/<% } %><%= useful_content[i][`С_${j}`]%>" />
+												</div>
+											<% } } } %>
+										<% } else {%>
+											<div class="swiper-slide">
+												<img src="/Image/Default/for_slider/1.jpg" />
+											</div>
+											<div class="swiper-slide">
+												<img src="/Image/Default/for_slider/2.jpg" />
+											</div>
+											<div class="swiper-slide">
+												<img src="/Image/Default/for_slider/3.jpg" />
+											</div>
+										<% } %>
+								  </div>
+								</div>
+							  </div>
+								<%if(useful_card[i]['Topic'] != '' || useful_card[i]['Description'] != ''){%>
+							  <div class="card-body">
+									<%if(useful_card[i]['Topic'] != ''){%>
+							    <h5 class="card-title"><%= useful_card[i]['Topic']%></h5>
+									<% } %>
+									<%if(useful_card[i]['Description'] != ''){%>
+							    <p class="card-text"><%= useful_card[i]['Description']%></p>
+									<% } %>
+							  </div>
+								<% } %>
+								<%if(link_useful != ''){%>
+								<a href="<%= link_useful %>" class="btn btn-primary">Подробнее...</a>
+								<% } %>
+							</div>
+					    </div>
+						<% } %>
+				  </div>
+				</div>
+				<%if(section_elements[1]['Link'] != ''){%>
+				<div class="for_btn">
+					<a href="<%= section_elements[1]['Link'] %>" class="right btn btn-outline-primary">Увидеть больше &#10148;</a>
+				</div>
+				<% } %>
+			</section>
+			<%}%>
+		</div>
+		<%if(book_of_reviews[0]['Description'] != '' && book_of_reviews[0]['Link'] && true_block['Book_of_Reviews'] != 0){%>
+		<div id="Book_of_Reviews" class="_anim_elements kek">
+			<div class="Base">
+				<p><%= book_of_reviews[0]['Description'] %></p>
+				<a href="<%= book_of_reviews[0]['Link'] %>" class="btn btn-outline-primary">Отзывы &#10148;</a>
+			</div>
+		</div>
+		<%}%>
+		<div class="Base">
+			<%if(useful != null && useful != undefined  && true_block['News'] != 0){%>
+			<section class="row _anim_elements kek p-0" id="News">
+				<h2><%= section_elements[2]['Topic'] %></h2>
+				<div class="d-none d-md-flex p-0" id="news_table">
+						<% for(var i=0; i < news.length; i++) { %>
+			    	<div class="card">
+						<%if(news_card[i]['Additionaly'] != null){%>
+			    	  <div class="text_">
+								<%= news_card[i]['Additionaly']; %>
+						  </div>
+						<%}%>
+					  <div class="Slider">
+							<div class="swiper_img">
+							  <div class="swiper-wrapper">
+									<% if(data_type_info_news[i][0] === 1 || data_type_info_news[i][1] === 1 || data_type_info_news[i][2] === 1 || data_type_info_news[i][3] === 1 || data_type_info_news[i][4] === 1){ %>
+										<% for(let j = 1; j <= 5; j++) { %>
+										<% if(data_type_info_news[i][(j-1)] === 1){ %>
+											<% if(news_content[i][`С_${j}`] != '' && news_content[i][`С_${j}`] != null) { %>
+											<div class="swiper-slide">
+												<img src="<% if(data_type_img_news[i][(j-1)] === 0){ %><%= img_link_news; %><%= news[i]['num_card']%>/<% } %><%= news_content[i][`С_${j}`]%>" />
+											</div>
+										<% } } } %>
+									<% } else {%>
+										<div class="swiper-slide">
+											<img src="/Image/Default/for_slider/1.jpg" />
+										</div>
+										<div class="swiper-slide">
+											<img src="/Image/Default/for_slider/2.jpg" />
+										</div>
+										<div class="swiper-slide">
+											<img src="/Image/Default/for_slider/3.jpg" />
+										</div>
+									<% } %>
+							  </div>
+							</div>
+						  </div>
+							<%if(news_card[i]['Topic'] != '' || news_card[i]['Description'] != ''){%>
+						  <div class="card-body">
+								<%if(news_card[i]['Topic'] != ''){%>
+						    <h5 class="card-title"><%= news_card[i]['Topic']%></h5>
+								<% } %>
+								<%if(news_card[i]['Description'] != ''){%>
+						    <p class="card-text"><%= news_card[i]['Description']%></p>
+								<% } %>
+						  </div>
+							<% } %>
+						<%if(link_news != ''){%>
+						<a href="<%= link_news %><%= news[i]['num_card'] %>" class="btn btn-primary">Подробнее...</a>
+						<% } %>
+					</div>
+					<% } %>
+				</div>
+				<div class="d-block d-md-none swiper swipers" id="news_swiper">
+				  <div class="swiper-wrapper">
+						<% for(var i=0; i < news.length; i++) { %>
+					    <div class="swiper-slide col-12">
+					    	<div class="swipe_img">
+								<img src="/Image/Default//output-onlinegiftools.gif" alt="photo_swippe">
+							</div>
+					    	<div class="card">
+							<%if(news_card[i]['Additionaly'] != null){%>
+				    	  <div class="text_">
+									<%= news_card[i]['Additionaly']; %>
+							  </div>
+							<%}%>
+							  <div class="Slider">
+								<div class="swiper_img">
+								  <div class="swiper-wrapper">
+										<% if(data_type_info_news[i][0] === 1 || data_type_info_news[i][1] === 1 || data_type_info_news[i][2] === 1 || data_type_info_news[i][3] === 1 || data_type_info_news[i][4] === 1){ %>
+											<% for(let j = 1; j <= 5; j++) { %>
+											<% if(data_type_info_news[i][(j-1)] === 1){ %>
+												<% if(news_content[i][`С_${j}`] != '' && news_content[i][`С_${j}`] != null) { %>
+												<div class="swiper-slide">
+													<img src="<% if(data_type_img_news[i][(j-1)] === 0){ %><%= img_link_news; %>/<% } %><%= news_content[i][`С_${j}`]%>" />
+												</div>
+											<% } } } %>
+										<% } else {%>
+											<div class="swiper-slide">
+												<img src="/Image/Default/for_slider/1.jpg" />
+											</div>
+											<div class="swiper-slide">
+												<img src="/Image/Default/for_slider/2.jpg" />
+											</div>
+											<div class="swiper-slide">
+												<img src="/Image/Default/for_slider/3.jpg" />
+											</div>
+										<% } %>
+								  </div>
+								</div>
+							  </div>
+								<%if(news_card[i]['Topic'] != '' || news_card[i]['Description'] != ''){%>
+							  <div class="card-body">
+									<%if(news_card[i]['Topic'] != ''){%>
+							    <h5 class="card-title"><%= news_card[i]['Topic']%></h5>
+									<% } %>
+									<%if(news_card[i]['Description'] != ''){%>
+							    <p class="card-text"><%= news_card[i]['Description']%></p>
+									<% } %>
+							  </div>
+								<% } %>
+								<%if(link_news != ''){%>
+								<a href="<%= link_news %>" class="btn btn-primary">Подробнее...</a>
+								<% } %>
+							</div>
+					    </div>
+						<% } %>
+				  </div>
+				</div>
+				<%if(section_elements[2]['Link'] != ''){%>
+				<div class="for_btn">
+					<a href="<%= section_elements[2]['Link'] %>" class="right btn btn-outline-primary">Увидеть больше &#10148;</a>
+				</div>
+				<% } %>
+			</section>
+			<%}%>
+			<% if(true_block['Discounts'] != 0){ %>
+			<section class="row _anim_elements kek" id="Discounts">
+				<h2><%= section_elements[3]['Topic'] %></h2>
+				<div class="d-none d-md-flex g-0" id="discounts_table">
+					<% for(var i=0; i < 2; i++) { %>
+			    	<section class="col-6">
+		    			<a href="<%= discount_link[i] %>">
+		    				<div class="card bg-dark text-white">
+							  <img src="<% if(discounts_type_img[i] === 0){ %><%= discount_link_img[i] %>/<% } %><%= discounts_info[i] %>" class="card-img" alt="Photo">
+							  <div class="card-img-overlay">
+							    <h5 class="card-title"><%= discount[i]['Topic'] %></h5>
+							    <p class="card-text"><%= discount[i]['Desc_2'] %></p>
+							    <p class="card-text"><%= discount[i]['Desc_3'] %></p>
+							  </div>
+							</div>
+		    			</a>
+		    		</section>
+					<% } %>
+				</div>
+				<div class="d-block d-md-none swiper swipers" id="discounts_swiper">
+				  <div class="swiper-wrapper">
+					<% for(var i=0; i < 2; i++) { %>
+				    <div class="swiper-slide col-md-12">
+		    			<a href="<%= discount_link[i] %>">
+		    				<div class="swipe_img">
+								<img src="/Image/Default//output-onlinegiftools.gif" alt="photo_swippe">
+							</div>
+		    				<div class="card bg-dark text-white">
+							  <img src="<% if(discounts_type_img[i] === 0){ %><%= discount_link_img[i] %>/<% } %><%= discounts_info[i] %>" class="card-img" alt="Photo">
+							  <div class="card-img-overlay">
+									<h5 class="card-title"><%= discount[i]['Topic'] %></h5>
+							    <p class="card-text"><%= discount[i]['Desc_2'] %></p>
+							    <p class="card-text"><%= discount[i]['Desc_3'] %></p>
+							  </div>
+							</div>
+		    			</a>
+				    </div>
+					<% } %>
+				  </div>
+				</div>
+				<div class="for_btn">
+					<a href="<%= section_elements[3]['Link'] %>" class="right btn btn-outline-primary">Все спецпредложения &#10148;</a>
+				</div>
+			</section>
+			<% } %>
+			<% if(true_block['Integration'] != 0){ %>
+			<section id="Advertising_Integration" class="_anim_elements kek">
+				<div class="d-none d-lg-flex ">
+					<section class="col"></section>
+					<section class="col"></section>
+					<section class="col"></section>
+				</div>
+				<div class="d-grid d-lg-none">
+					<div class="swiper swipers d-grid" id="swiper_advertising-integration">
+					  <div class="swiper-wrapper">
+					    <div class="swiper-slide">
+					    	<div class="swipe_img">
+								<img src="/Image/Default//output-onlinegiftools.gif" alt="photo_swippe">
+							</div>
+					    	<section></section>
+					    </div>
+					    <div class="swiper-slide">
+					    	<div class="swipe_img">
+								<img src="/Image/Default//output-onlinegiftools.gif" alt="photo_swippe">
+							</div>
+					    	<section></section>
+					    </div>
+					    <div class="swiper-slide">
+					    	<div class="swipe_img">
+								<img src="/Image/Default//output-onlinegiftools.gif" alt="photo_swippe">
+							</div>
+					    	<section></section>
+					    </div>
+					  </div>
+					</div>
+				</div>
+			</section>
+			<% } %>
+			<% if(true_block['Actual'] != 0){ %>
+			<section class="row _anim_elements kek" id="Actual">
+				<h2><%= section_elements[4]['Topic'] %></h2>
+				<div class="row">
+					<% for(var i=0; i < hot.length; i++) { %>
+						<% if((i+1) === 1){ %>
+							<section class="col-md-4 col-12 py-5">
+								<h5><%= hot[i]['Main_Topic'] %></h5>
+								<div class="swiper mySwiper">
+									<div class="swiper-wrapper">
+										<% for(var j=0; j < 4; j++) { %>
+											<% const num_card = `num_card_${(j+1)}`; %>
+											<% const type_card = `num_topic_${(j+1)}`; %>
+											<% const city_num_card = ((hot[i][num_card]-1) + (hot[i][type_card]-1)*hotels_count_card[(hot[i][num_card]-1)]); %>
+											<div class="swiper-slide">
+												<div class="swipe_img">
+													<img src="/Image/Default//output-onlinegiftools.gif" alt="photo_swippe">
+												</div>
+												<a target="_blank" href="<%= hotels[city_num_card]['Link'] %>">
+													<div class="card bg-dark text-white">
+														<img src="<% if(data_type_hot_img[i][j] === 0){ %><%= img_link_hot; %><%= hot[i][type_card]; %>/Hotels/<% } %><%= hotels[city_num_card]['Img'] %>" class="card-img" alt="photo">
+														<div class="card-img-overlay">
+															<h5><%= hotels[city_num_card]['Topic'] %></h5>
+															<div class="rating-result">
+																<% for(var k=0; k < 5; k++) { %>
+																	<%if(k < hotels[city_num_card]['Rating']){%>
+																		<span class="active"></span>
+																	<%} else {%>
+																		<span></span>
+																	<%}%>
+																<%}%>
+															</div>
+														</div>
+													 </div>
+												</a>
+											</div>
+										<% } %>
+									</div>
+								</div>
+							</section>
+						<% } else if((i+1) === 2){ %>
+							<section class="col-md-4 col-12 py-5">
+								<h5><%= hot[i]['Main_Topic'] %></h5>
+								<div class="swiper mySwiper">
+									<div class="swiper-wrapper">
+										<% for(var j=0; j < 4; j++) { %>
+											<% const num_card = `num_card_${(j+1)}`; %>
+											<% const type_card = `num_topic_${(j+1)}`; %>
+											<% const city_num_card = ((hot[i][num_card]-1) + (hot[i][type_card]-1)*restaurants_count_card[(hot[i][num_card]-1)]); %>
+											<div class="swiper-slide">
+												<div class="swipe_img">
+													<img src="/Image/Default//output-onlinegiftools.gif" alt="photo_swippe">
+												</div>
+												<a target="_blank" href="<%= restaurants[city_num_card]['Link'] %>">
+													<div class="card bg-dark text-white">
+														<img src="<% if(data_type_hot_img[i][j] === 0){ %><%= img_link_hot; %><%= hot[i][type_card]; %>/Restaurants/<% } %><%= restaurants[city_num_card]['Img'] %>" class="card-img" alt="photo">
+														<div class="card-img-overlay">
+															<h5><%= restaurants[city_num_card]['Topic'] %></h5>
+															<div class="rating-result">
+																<% for(var k=0; k < 5; k++) { %>
+																	<%if(k < restaurants[city_num_card]['Rating']){%>
+																		<span class="active"></span>
+																	<%} else {%>
+																		<span></span>
+																	<%}%>
+																<%}%>
+															</div>
+														</div>
+													 </div>
+												</a>
+											</div>
+										<% } %>
+									</div>
+								</div>
+							</section>
+						<% } else if((i+1) === 3){ %>
+							<section class="col-md-4 col-12 py-5">
+								<h5><%= hot[i]['Main_Topic'] %></h5>
+								<div class="swiper mySwiper">
+									<div class="swiper-wrapper">
+										<% for(var j=0; j < 4; j++) { %>
+											<% const num_card = `num_card_${(j+1)}`; %>
+											<% const type_card = `num_topic_${(j+1)}`; %>
+											<% const city_num_card = ((hot[i][num_card]-1) + (hot[i][type_card]-1)*attractions_count_card[(hot[i][num_card]-1)]); %>
+											<div class="swiper-slide">
+												<div class="swipe_img">
+													<img src="/Image/Default//output-onlinegiftools.gif" alt="photo_swippe">
+												</div>
+												<a target="_blank" href="<%= attractions[city_num_card]['Link'] %>">
+													<div class="card bg-dark text-white">
+														<img src="<% if(data_type_hot_img[i][j] === 0){ %><%= img_link_hot; %><%= hot[i][type_card]; %>/Attractions/<% } %><%= attractions[city_num_card]['Img'] %>" class="card-img" alt="photo">
+														<div class="card-img-overlay">
+															<h5><%= attractions[city_num_card]['Topic'] %></h5>
+															<div class="rating-result">
+																<% for(var k=0; k < 5; k++) { %>
+																	<%if(k < attractions[city_num_card]['Rating']){%>
+																		<span class="active"></span>
+																	<%} else {%>
+																		<span></span>
+																	<%}%>
+																<%}%>
+															</div>
+														</div>
+													 </div>
+												</a>
+											</div>
+										<% } %>
+									</div>
+								</div>
+							</section>
+						<% } %>
+					<% } %>
+				</div>
+				<div class="for_btn">
+					<a href="<%= section_elements[4]['Link'] %>" class="right btn btn-outline-primary">Подробнее &#10148;</a>
+				</div>
+			</section>
+			<% } %>
+		</div>
+	</div>
+	<%- include ('Elements/footer.ejs'); %>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+	<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+	<script src="Source/Main/js/for_slider.js"></script>
+	<script src="Source/default/js/for_anim_move_up.js"></script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+.Base > section > section{
+	padding: 12px;
+}
+.card{
+	border-radius: 10px;
+	overflow: hidden;
+
+	-webkit-box-shadow: 0px 2px 4px 1px rgba(34, 60, 80, 0.3);
+	-moz-box-shadow: 0px 2px 4px 1px rgba(34, 60, 80, 0.3);
+	box-shadow: 0px 2px 4px 1px rgba(34, 60, 80, 0.3);
+}
+.card:hover{
+	-webkit-box-shadow: 0px 5px 10px -1px rgba(34, 60, 80, 0.4);
+	-moz-box-shadow: 0px 5px 10px -1px rgba(34, 60, 80, 0.4);
+	box-shadow: 0px 5px 10px -1px rgba(34, 60, 80, 0.4);
+}
+.card .card-title{
+	display: -webkit-box;
+	overflow: hidden;
+
+	-webkit-line-clamp: 4;
+	-webkit-box-orient: vertical;
+}
+.card .card-text{
+	display: -webkit-box;
+	overflow: hidden;
+
+	-webkit-line-clamp: 4;
+	-webkit-box-orient: vertical;
+}
+hr{
+	border: 1px solid white;
+
+}
+.card-img-overlay{
+	background: rgba(0, 0, 0, 0.1);
+}
+
+/*Для анимации*/
+._anim_elements, ._anim_elements .card{
+	overflow: hidden;
+}
+.kek, .kek *{
+	height: 0px;
+
+	visibility: hidden;
+}
+
+/*Анимация появления*/
+.anim_active, .anim_active .card{
+	animation: size_grow 1s ease 1 normal running 0s backwards;
+
+	overflow: hidden;
+}
+#Main_Base .anim_active img{
+	animation: size_grow 1s ease 1 normal running 1s backwards;
+
+	overflow: hidden;
+}
+@keyframes size_grow{
+	0%{
+		opacity: 0;
+		transform: scale(0);
+	}
+	100%{
+		opacity: 100%;
+		transform: scale(1.0);
+	}
+}
+#Main_Base hr{
+	animation: blink 1s ease 1 normal running 1s backwards;
+
+	overflow: hidden;
+}
+@keyframes blink{
+	0%{
+		opacity: 0;
+	}
+	100%{
+		opacity: 100%;
+	}
+}
+#Main_Base .anim_active h5, #Main_Base .anim_active h4{
+	animation: move_to_left 1s ease 1 normal running 1s backwards;
+}
+@keyframes move_to_right{
+	0%{
+		opacity: 0%;
+
+		position: relative;
+		left: -120%;
+		transform: translateX(-100%);
+	}
+	100%{
+		position: relative;
+		left: 0%;
+		transform: translateX(0%);
+	}
+}
+#Main_Base .anim_active h3, #Main_Base .anim_active p{
+	animation: move_to_right 1s ease 1 normal running 1s backwards;
+}
+@keyframes move_to_left{
+	0%{
+		opacity: 0%;
+
+		position: relative;
+		right: -120%;
+		transform: translateX(100%);
+	}
+	100%{
+		position: relative;
+		left: 0%;
+		transform: translateX(0%);
+	}
+}
+
+@media (max-width: 575.98px){
+	.card img{
+		height: 66.5vw;
+	}
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+	.card img{
+		height: 66.5vw;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+	.card img{
+		height: 33.25vw;
+	}
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+	.card img{
+		height: 31.5vw;
+	}
+}
+
+@media (min-width: 1200px) and (max-width: 1399.98px){
+	.card img{
+		height: 28vw;
+	}
+}
+
+@media (min-width: 1400px){
+	.card img{
+		height: 29.75rem;
+	}
+}

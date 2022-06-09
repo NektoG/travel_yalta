@@ -1,0 +1,88 @@
+nav{
+	background: rgb(5, 28, 56);
+}
+nav a{
+	font-family: cursive;
+	color: whitesmoke;
+}
+.black >.dropdown-divider{
+	background-color: black;
+}
+.white >.dropdown-divider{
+	background-color: white;
+}
+#autorization_mobile ul{
+	padding: 0;
+}
+#autorization{
+	padding: 0;
+}
+#autorization li{
+	border-radius: 5px;
+
+	margin-left: 5px;
+}
+#autorization .Login, #autorization .Profile{
+	border:1px solid whitesmoke;
+}
+#autorization .Login a, #autorization .Profile > a{
+	color:whitesmoke;
+}
+#autorization .Login:hover, #autorization .Profile:hover, #autorization .show{
+	background: whitesmoke;
+}
+#autorization .Login:hover a, #autorization .Profile:hover a, #autorization .show{
+	color: rgb(5,28,56);
+}
+#autorization .Registration{
+	background: rgb(255, 193, 7);
+
+	border:1px solid rgb(255, 193, 7);
+}
+#autorization .Registration a{
+	color: rgb(5,28,56);
+}
+#autorization .Registration:hover{
+	background: rgb(255, 213, 85);
+
+	border:1px solid rgb(255, 213, 85);
+}
+#autorization_mobile{
+	text-align: left;
+}
+#autorization_mobile li span{
+	border-radius: 5px;
+
+	padding: 2px 6px;
+
+}
+#autorization_mobile .Profile span, #autorization_mobile .Login span{
+	border:1px solid whitesmoke;
+
+	color:whitesmoke;
+}
+#autorization_mobile .Profile span:hover, #autorization_mobile .show > span, #autorization_mobile .Login span:hover{
+	background: whitesmoke;
+
+	color:rgb(5,28,56);
+}
+#autorization_mobile .Registration span{
+	background: rgb(255, 193, 7);
+	border:1px solid rgb(255, 193, 7);
+
+	color: rgb(5,28,56);
+}
+#autorization_mobile .Registration span:hover{
+	background: rgb(255, 213, 85);
+
+	border:1px solid rgb(255, 213, 85);
+}
+
+.Name{
+	font-family: cursive;
+}
+.Name h5:hover{
+	background: none;
+
+	cursor: help;
+}

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="content-language" content="ru">
+		<meta name="description" content="<%= introduction[0]['Description'] %>">
+		<meta name="keywords" content="<%= real_keywords %>">
+
+		<meta name="application-name" content="<%= real_name_project %>">
+		<meta name="generator" content="Node JS">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title><% for(var i=0; i < name_cite.length; i++) { %><%if(name_cite[i]['Cite'] === 'Actual'){%><%= name_cite[i]['Name'] %> <% } %><% } %><%= real_name_project %></title>
+		<link rel="shortcut icon" href="<%= image_favicon %><%= favicon[0]['Link'] %>">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
+		<link rel="stylesheet" href="Source/default/css/resource.css">
+		<link rel="stylesheet" href="Source/Elements/Header/css/resource.css">
+		<link rel="stylesheet" href="Source/Actual_Type/css/resource.css">
+		<link rel="stylesheet" href="Source/Elements/Footer/css/resource.css">
+	</head>
+	<body>
+		<%- include ('Elements/header.ejs'); -%>
+	  <div id="Main_Base">
+	    <div class="Base g-0">
+			<%if(introduction[0]['Topic'] != '' && introduction[0]['Description'] != ''){%>
+	    	<section id="Introduction">
+					<div class="anim_active">
+						<%if(introduction[0]['Topic'] != ''){%>
+						<h3><%= introduction[0]['Topic'] %></h3>
+						<%}%>
+						<%if(introduction[0]['Description'] != ''){%>
+						<h5><%= introduction[0]['Description'] %></h5>
+						<%}%>
+					</div>
+	    	</section>
+				<% } %>
+				<% if(city != null && city != undefined){ %>
+	    	<section id="Content" class="row _anim_elements kek">
+					<% for(var i=(city.length-1); i >= 0; i--) { %>
+						<%if(city.length === i  && _default != null && _default != undefined) {%>
+		    		<section class="col-md-6 col-12 _anim_elements kek" id="image">
+		    				<div class="card bg-dark text-white">
+		    				  <img src="<%= _default[0]['Img'] %>" class="card-img" alt="...">
+							  <div class="card-img-overlay">
+							    <h4 class="card-title"><%= _default[0]['Topic'] %></h4>
+							    <hr>
+							    <h5 class="card-text"><%= _default[0]['Description'] %></h5>
+							  </div>
+							</div>
+		    		</section>
+						<% } else if(i < city.length) { %>
+							<section class="col-md-6 col-12 _anim_elements kek">
+								<a href="<%= link; %><%= (i+1); %>">
+									<div class="Slider">
+										<div class="swiper swiper_city">
+											<div class="swiper-wrapper">
+										<% for(var k=0; k < data_count_city[i]; k++) { %>
+											<% const num_card = `num_card_${(k+1)}`; %>
+											<% const type_card = `type_card_${(k+1)}`; %>
+											<% if(city[i][type_card] === 1 && hotels != null && hotels != undefined){%>
+											<% const city_num_card = ((city[i][num_card]-1) + i*hotels_count_card[i]); %>
+											<div class="swiper-slide">
+						    				<div class="card bg-dark text-white">
+													<div>
+														<img src="<% if(type_hotels_img[i][k] === 0){ %><%= img_link; %><%= (i+1); %>/Hotels/<% } %><%= hotels[city_num_card]['Img'] %>" />
+													</div>
+												  <div class="card-img-overlay">
+														<h5 class="card-title"><%= city[i]['Topic'] %></h5>
+														<hr>
+												    <h5 class="card-title"><%= hotels[city_num_card]['Topic'] %></h5>
+														<div class="rating-result">
+															<% for(var j=0; j < 5; j++) { %>
+																<%if(j < hotels[city_num_card]['Rating']){%>
+																	<span class="active"></span>
+																<%} else {%>
+																	<span></span>
+																<%}%>
+															<%}%>
+														</div>
+												  </div>
+												</div>
+											</div>
+											<% } else if(city[i][type_card] === 2 && restaurants != null && restaurants != undefined){%>
+											<% const city_num_card = ((city[i][num_card]-1) + i*restaurants_count_card[i]); %>
+											<div class="swiper-slide">
+						    				<div class="card bg-dark text-white">
+													<div>
+														<img src="<% if(type_restaurants_img[i][k] === 0){ %><%= img_link; %><%= (i+1); %>/Restaurants/<% } %><%= restaurants[city[i][num_card]]['Img'] %>" />
+													</div>
+												  <div class="card-img-overlay">
+														<h5 class="card-title"><%= city[i]['Topic']; %></h5>
+														<hr>
+												    <h5 class="card-title"><%= restaurants[city_num_card]['Topic']; %></h5>
+														<div class="rating-result">
+															<% for(var j=0; j < 5; j++) { %>
+																<%if(j < restaurants[city_num_card]['Rating']){%>
+																	<span class="active"></span>
+																<%} else {%>
+																	<span></span>
+																<%}%>
+															<%}%>
+														</div>
+												  </div>
+												</div>
+											</div>
+											<% } else if(city[i][type_card] === 3 && attractions != null && attractions != undefined){%>
+											<% const city_num_card = ((city[i][num_card]-1) + i*attractions_count_card[i]); %>
+											<div class="swiper-slide">
+						    				<div class="card bg-dark text-white">
+													<div>
+														<img src="<% if(type_attractions_img[i][k] === 0){ %><%= img_link; %><%= (i+1); %>/Attractions/<% } %><%= attractions[city_num_card]['Img'] %>" />
+													</div>
+												  <div class="card-img-overlay">
+														<h5 class="card-title"><%= city[i]['Topic'] %></h5>
+														<hr>
+												    <h5 class="card-title"><%= attractions[city_num_card]['Topic'] %></h5>
+														<div class="rating-result">
+															<% for(var j=0; j < 5; j++) { %>
+																<%if(j < attractions[city_num_card]['Rating']){%>
+																	<span class="active"></span>
+																<%} else {%>
+																	<span></span>
+																<%}%>
+															<%}%>
+														</div>
+												  </div>
+												</div>
+											</div>
+											<% } %>
+										<% } %>
+									<% } %>
+								</div>
+								<div class="swiper-pagination"></div>
+							</div>
+						</div>
+					</a>
+				</section>
+					<% } %>
+				</section>
+				<% } %>
+	    	<hr>
+	    	<section id="Top_of_the_Week" class="_anim_elements kek">
+	    		<h3>Топ этой недели</h3>
+	    		<div class="row">
+						<% for(var i=0; i < hot.length; i++) { %>
+		    			<% if((i+1) === 1){ %>
+								<section class="col-md-4 col-12 py-5">
+			    				<h5><%= hot[i]['Main_Topic'] %></h5>
+			    				<div class="swiper mySwiper">
+							      <div class="swiper-wrapper">
+											<% for(var j=0; j < 4; j++) { %>
+												<% const num_card = `num_card_${(j+1)}`; %>
+								        <% const type_card = `num_topic_${(j+1)}`; %>
+												<% const city_num_card = ((hot[i][num_card]-1) + (hot[i][type_card]-1)*hotels_count_card[(hot[i][num_card]-1)]); %>
+												<div class="swiper-slide">
+								        	<div class="swipe_img">
+														<img src="/Image/Default/output-onlinegiftools.gif" alt="photo_swippe">
+													</div>
+								          <a target="_blank" href="<%= hotels[city_num_card]['Link'] %>">
+								          	<div class="card bg-dark text-white">
+														  <img src="<% if(data_type_hot_img[i][j] === 0){ %><%= img_link; %><%= hot[i][type_card]; %>/Hotels/<% } %><%= hotels[city_num_card]['Img'] %>" class="card-img" alt="photo">
+														  <div class="card-img-overlay">
+														    <h5><%= hotels[city_num_card]['Topic'] %></h5>
+																<div class="rating-result">
+																	<% for(var k=0; k < 5; k++) { %>
+																		<%if(k < hotels[city_num_card]['Rating']){%>
+																			<span class="active"></span>
+																		<%} else {%>
+																			<span></span>
+																		<%}%>
+																	<%}%>
+																</div>
+															</div>
+														 </div>
+													</a>
+												</div>
+											<% } %>
+										</div>
+							    </div>
+			    			</section>
+							<% } else if((i+1) === 2){ %>
+								<section class="col-md-4 col-12 py-5">
+			    				<h5><%= hot[i]['Main_Topic'] %></h5>
+			    				<div class="swiper mySwiper">
+							      <div class="swiper-wrapper">
+											<% for(var j=0; j < 4; j++) { %>
+												<% const num_card = `num_card_${(j+1)}`; %>
+								        <% const type_card = `num_topic_${(j+1)}`; %>
+												<% const city_num_card = ((hot[i][num_card]-1) + (hot[i][type_card]-1)*restaurants_count_card[(hot[i][num_card]-1)]); %>
+												<div class="swiper-slide">
+								        	<div class="swipe_img">
+														<img src="/Image/Default/output-onlinegiftools.gif" alt="photo_swippe">
+													</div>
+								          <a target="_blank" href="<%= restaurants[city_num_card]['Link'] %>">
+								          	<div class="card bg-dark text-white">
+														  <img src="<% if(data_type_hot_img[i][j] === 0){ %><%= img_link; %><%= hot[i][type_card]; %>/Restaurants/<% } %><%= restaurants[city_num_card]['Img'] %>" class="card-img" alt="photo">
+														  <div class="card-img-overlay">
+														    <h5><%= restaurants[city_num_card]['Topic'] %></h5>
+																<div class="rating-result">
+																	<% for(var k=0; k < 5; k++) { %>
+																		<%if(k < restaurants[city_num_card]['Rating']){%>
+																			<span class="active"></span>
+																		<%} else {%>
+																			<span></span>
+																		<%}%>
+																	<%}%>
+																</div>
+															</div>
+														 </div>
+													</a>
+												</div>
+											<% } %>
+										</div>
+							    </div>
+			    			</section>
+							<% } else if((i+1) === 3){ %>
+								<section class="col-md-4 col-12 py-5">
+			    				<h5><%= hot[i]['Main_Topic'] %></h5>
+			    				<div class="swiper mySwiper">
+							      <div class="swiper-wrapper">
+											<% for(var j=0; j < 4; j++) { %>
+												<% const num_card = `num_card_${(j+1)}`; %>
+								        <% const type_card = `num_topic_${(j+1)}`; %>
+												<% const city_num_card = ((hot[i][num_card]-1) + (hot[i][type_card]-1)*attractions_count_card[(hot[i][num_card]-1)]); %>
+												<div class="swiper-slide">
+								        	<div class="swipe_img">
+														<img src="/Image/Default/output-onlinegiftools.gif" alt="photo_swippe">
+													</div>
+								          <a target="_blank" href="<%= attractions[city_num_card]['Link'] %>">
+								          	<div class="card bg-dark text-white">
+														  <img src="<% if(data_type_hot_img[i][j] === 0){ %><%= img_link; %><%= hot[i][type_card]; %>/Attractions/<% } %><%= attractions[city_num_card]['Img'] %>" class="card-img" alt="photo">
+														  <div class="card-img-overlay">
+														    <h5><%= attractions[city_num_card]['Topic'] %></h5>
+																<div class="rating-result">
+																	<% for(var k=0; k < 5; k++) { %>
+																		<%if(k < attractions[city_num_card]['Rating']){%>
+																			<span class="active"></span>
+																		<%} else {%>
+																			<span></span>
+																		<%}%>
+																	<%}%>
+																</div>
+															</div>
+														 </div>
+													</a>
+												</div>
+											<% } %>
+										</div>
+							    </div>
+			    			</section>
+							<% } %>
+						<% } %>
+	    		</div>
+	    	</section>
+	    </div>
+	  </div>
+	<%- include ('Elements/footer.ejs'); %>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+	<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+	<script src="Source/Actual_Type/js/for_slider.js"></script>
+	<script src="Source/default/js/for_anim_move_up.js"></script>
+	</body>
+</html>
